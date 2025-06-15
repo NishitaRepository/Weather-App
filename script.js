@@ -54,7 +54,7 @@ function getWeatherIcon(id) {
     if (id >= 600 && id <= 622) return 'snow.svg';
     if (id >= 701 && id <= 781) return 'atmosphere.svg';
     if (id === 800) return 'clear.svg';
-    if (id >= 801 && id <= 804) return 'cloud.svg';
+    if (id >= 801 && id <= 804) return 'clouds.svg';
     return 'unknown.svg';
 }
 
@@ -90,7 +90,7 @@ async function updateWeatherInfo(city) {
     humidityValueText.textContent = humidity + '%';
     windValueText.textContent = speed + ' M/s';
     currentDateText.textContent = getCurrentDate();
-    weatherSummaryImg.src = `assets/weather/${getWeatherIcon(id)}`;
+    weatherSummaryImg.src = `${getWeatherIcon(id)}`;
 
     await updateForecastInfo(city);
     showDisplaySection(weatherInfoSection);
@@ -136,7 +136,7 @@ function updateForecastItems(weatherData) {
     const forecastItem = `
         <div class="forecast-item">
             <h5 class="forecast-item-date regular-text">${dateResult}</h5>
-            <img src="assets/weather/${getWeatherIcon(id)}" class="forecast-item-img" alt="icon">
+            <img src="${getWeatherIcon(id)}" class="forecast-item-img" alt="icon">
             <h5 class="forecast-item-temp">${Math.round(temp)} °C</h5>
         </div>
     `;
